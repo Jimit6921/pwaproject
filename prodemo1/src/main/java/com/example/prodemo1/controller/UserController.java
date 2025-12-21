@@ -17,6 +17,13 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
+    // 👇 THIS makes register page open when clicking the app link
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("user", new User());
+        return "register";
+    }
+
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
